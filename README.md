@@ -110,7 +110,9 @@ To install a development version from source, please see the [Installation wiki 
 
 How do I customize the panel? [See the Wiki](https://github.com/home-sweet-gnome/dash-to-panel/wiki/Enable-and-Customize#customize-it)
 
-How do I embed my bottom left notification drawer into the panel like a system tray? [Top Icons Plus](https://extensions.gnome.org/extension/2311/topicons-plus) or [(K)StatusNotifierItem/AppIndicator Support](https://extensions.gnome.org/extension/615/appindicator-support)
+How do I show application tray icons without another extension? Enable **System Tray → Use the built-in system tray** in Dash to Panel preferences. Disable any other tray extension to let the built-in service take over. The native tray supports StatusNotifierItem/AppIndicator icons and menus, including per-application visibility, ordering, custom icons, monochrome display, saturation, brightness, contrast, and tint. Existing Status Tray appearance settings are imported once when available. Icons appear on the primary Dash to Panel panel, including vertical layouts. Legacy XEmbed-only applications and animated attention movies are not supported. If you prefer a separate tray implementation, leave the built-in option off and use an extension such as [(K)StatusNotifierItem/AppIndicator Support](https://extensions.gnome.org/extension/615/appindicator-support).
+
+How do I compact and arrange application tray icons? In **System Tray**, adjust **Icon spacing** and enable **Collapse extra icons**. **Maximum visible icons** keeps the first applications on the panel and puts the rest in the arrow's popup; zero puts every application in the popup. Use the arrows in **Icon order** to choose the sequence in both places. Hidden and passive applications do not count toward the limit. Popup icons retain their application menus and appearance settings.
 
 How do I add a traditional start menu? [Arc Menu](https://extensions.gnome.org/extension/3628/arcmenu/)
 

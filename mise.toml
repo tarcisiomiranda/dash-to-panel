@@ -1,0 +1,29 @@
+[tasks.test]
+description = "Test native tray registration on an isolated session bus"
+run = "dbus-run-session -- gjs -m tests/statusNotifierWatcher.js"
+env = { GIO_USE_VFS = "local" }
+
+[tasks.check]
+description = "Validate native tray modules and GSettings schema"
+run = [
+  "node --check src/statusNotifierWatcher.js",
+  "node --check src/statusNotifierItem.js",
+  "node --check src/statusNotifierEffects.js",
+  "node --check src/statusNotifierOverflow.js",
+  "node --check src/statusNotifierUtils.js",
+  "node --check src/statusNotifierConfig.js",
+  "node --check src/panelManager.js",
+  "node --check src/prefs.js",
+  "node --check src/systemTray.js",
+  "node --check src/systemTrayPrefs.js",
+  "glib-compile-schemas --strict --dry-run schemas",
+]
+
+[tasks.build]
+description = "Build the extension without installing it"
+run = "make VERSION=9999 extension"
+
+[tasks.test-prefs]
+description = "Smoke test the native tray preferences using a display and in-memory settings"
+run = "gjs -m tests/systemTrayPrefs.js"
+env = { GSETTINGS_BACKEND = "memory", GIO_USE_VFS = "local" }
